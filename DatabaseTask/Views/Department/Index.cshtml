@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@if(TempData["Msg"] != null)
+{
+    <p class="alert alert-success">@TempData["Msg"]</p>
+}
+
+<h1>Index</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Details</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><a href="/Department/Details/@item.Id">Details</a></td>
+            <td><a href="/Department/Update/@item.Id">Update</a></td>
+
+            <td>
+                <form method="post" action="/Department/Delete">
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <button class="btn btn-danger" onclick="return confirm('Are you sure?')">
+                        Delete
+                    </button>
+                </form>
+            </td>
+
+        </tr>
+    }
+</table>

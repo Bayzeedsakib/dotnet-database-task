@@ -1,0 +1,21 @@
+﻿@model DatabaseTask.EF.Tables.Department
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<form method="post">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <input type="text"
+           name="Name"
+           value="@Model.Name"
+           class="form-control"
+           placeholder="Name" />
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+
+</form>
